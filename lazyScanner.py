@@ -40,9 +40,9 @@ class LazyScanner():
             else:
                 return
 
-            reVersion = re.search("^VERSION_ID=\"?(\w+)\"?",version,re.MULTILINE)
+            reVersion = re.search("^VERSION_ID=\"?(\w+)(.\w+)?\"?",version,re.MULTILINE)
             if reVersion:
-                osVersion = reVersion.group(1).lower()
+                osVersion = ''.join([s.lower() for s in reVersion.groups()])
             else:
                 return
             return (osFamily, osVersion)
