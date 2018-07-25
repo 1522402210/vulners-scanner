@@ -48,7 +48,7 @@ class LazyScanner():
             return (osFamily, osVersion)
 
     def getPackages(self, osName):
-        if osName in ('debian','ubuntu', 'kali'):
+        if osName in ('debian','ubuntu', 'kali', 'linuxmint'):
             cmd = "dpkg-query -W -f='${Package} ${Version} ${Architecture}\n'"
         elif osName in ('rhel', 'centos', 'oraclelinux', 'suse', 'fedora'):
             cmd = "rpm -qa"
